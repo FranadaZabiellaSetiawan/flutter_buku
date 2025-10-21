@@ -36,11 +36,13 @@ class _BukuDetailState extends State<BukuDetail> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Judul: ${b.judul ?? '-'}", style: const TextStyle(fontSize: 18)),
+            Text("Judul: ${b.judul ?? '-'}",
+                style: const TextStyle(fontSize: 18)),
             const SizedBox(height: 10),
-            Text("Penulis: ${b.penulis ?? '-'}", style: const TextStyle(fontSize: 18)),
+            Text("Penulis: ${b.penulis ?? '-'}",
+                style: const TextStyle(fontSize: 18)),
             const SizedBox(height: 10),
-            Text("Tahun Terbit: ${b.tahunTerbit?.toString() ?? '-'}",
+            Text("Tahun Terbit: ${b.tahunPenerbit?.toString() ?? '-'}",
                 style: const TextStyle(fontSize: 18)),
           ],
         ),
@@ -71,7 +73,9 @@ class _BukuDetailState extends State<BukuDetail> {
             title: const Text('Gagal'),
             content: const Text('Gagal menyimpan perubahan.'),
             actions: [
-              TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
+              TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('OK')),
             ],
           ),
         );
@@ -88,7 +92,9 @@ class _BukuDetailState extends State<BukuDetail> {
           title: const Text('Kesalahan'),
           content: const Text('ID buku tidak tersedia.'),
           actions: [
-            TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
+            TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('OK')),
           ],
         ),
       );
@@ -101,8 +107,12 @@ class _BukuDetailState extends State<BukuDetail> {
         title: const Text('Konfirmasi'),
         content: const Text('Yakin mau hapus buku ini?'),
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Batal')),
-          TextButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Hapus')),
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Batal')),
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text('Hapus')),
         ],
       ),
     );
@@ -125,7 +135,9 @@ class _BukuDetailState extends State<BukuDetail> {
           title: const Text('Gagal'),
           content: const Text('Gagal menghapus data, coba lagi.'),
           actions: [
-            TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
+            TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('OK')),
           ],
         ),
       );

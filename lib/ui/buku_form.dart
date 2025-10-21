@@ -24,7 +24,7 @@ class _BukuFormState extends State<BukuForm> {
     _judulController = TextEditingController(text: widget.buku?.judul ?? '');
     _penulisController = TextEditingController(text: widget.buku?.penulis ?? '');
     _tahunController =
-        TextEditingController(text: widget.buku?.tahunTerbit?.toString() ?? '');
+        TextEditingController(text: widget.buku?.tahunPenerbit?.toString() ?? '');
   }
 
   @override
@@ -43,14 +43,14 @@ class _BukuFormState extends State<BukuForm> {
     final String judul = _judulController.text.trim();
     final String penulis = _penulisController.text.trim();
     final String tahunText = _tahunController.text.trim();
-    final int? tahun = tahunText.isEmpty ? null : int.tryParse(tahunText);
+    final int tahun = tahunText.isEmpty ? 0 : int.tryParse(tahunText) ?? 0;
 
     // Ensure 'tahun' variable exists and use it here.
     final Buku result = Buku(
       id: widget.buku?.id,
       judul: judul,
       penulis: penulis,
-      tahunTerbit: tahun, // using local variable 'tahun'
+      tahunPenerbit: tahun,
     );
 
     if (!mounted) return;
@@ -87,7 +87,7 @@ class _BukuFormState extends State<BukuForm> {
               const SizedBox(height: 12),
               TextFormField(
                 controller: _tahunController,
-                decoration: const InputDecoration(labelText: 'Tahun Terbit'),
+                decoration: const InputDecoration(labelText: 'Tahun Penerbit'),
                 keyboardType: TextInputType.number,
                 validator: (v) {
                   if (v == null || v.trim().isEmpty) return null;
@@ -115,4 +115,3 @@ class _BukuFormState extends State<BukuForm> {
     );
   }
 }
-// ...existing code...

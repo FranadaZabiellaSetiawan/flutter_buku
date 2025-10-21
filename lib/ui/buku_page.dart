@@ -70,8 +70,12 @@ class _BukuPageState extends State<BukuPage> {
         title: const Text('Konfirmasi'),
         content: const Text('Hapus buku ini?'),
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Batal')),
-          TextButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Hapus')),
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Batal')),
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text('Hapus')),
         ],
       ),
     );
@@ -112,7 +116,9 @@ class _BukuPageState extends State<BukuPage> {
               const DrawerHeader(
                 child: Align(
                   alignment: Alignment.bottomLeft,
-                  child: Text('Menu', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+                  child: Text('Menu',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
                 ),
               ),
               ListTile(
@@ -125,7 +131,8 @@ class _BukuPageState extends State<BukuPage> {
               const Divider(),
               ListTile(
                 leading: const Icon(Icons.logout, color: Colors.red),
-                title: const Text('Logout', style: TextStyle(color: Colors.red)),
+                title:
+                    const Text('Logout', style: TextStyle(color: Colors.red)),
                 onTap: () async {
                   Navigator.of(context).pop(); // close drawer
                   await _logout();
@@ -146,7 +153,8 @@ class _BukuPageState extends State<BukuPage> {
                     final b = _items[index];
                     return ListTile(
                       title: Text(b.judul ?? '-'),
-                      subtitle: Text('${b.penulis ?? '-'} • ${b.tahunTerbit ?? '-'}'),
+                      subtitle: Text(
+                          '${b.penulis ?? '-'} • ${b.tahunPenerbit ?? '-'}'),
                       onTap: () => _edit(b),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete, color: Colors.red),

@@ -2,13 +2,13 @@ class Buku {
   int? id;
   String? judul;
   String? penulis;
-  int? tahunTerbit;
+  int? tahunPenerbit;
 
   Buku({
     this.id,
     this.judul,
     this.penulis,
-    this.tahunTerbit,
+    this.tahunPenerbit,
   });
 
   factory Buku.fromJson(Map<String, dynamic> json) {
@@ -16,7 +16,7 @@ class Buku {
       id: json['id'],
       judul: json['judul'],
       penulis: json['penulis'],
-      tahunTerbit: json['tahunTerbit'],
+      tahunPenerbit: json['tahun_penerbit'],
     );
   }
 
@@ -25,7 +25,7 @@ class Buku {
       'id': id,
       'judul': judul,
       'penulis': penulis,
-      'tahunTerbit': tahunTerbit,
+      'tahun_penerbit': tahunPenerbit,
     };
   }
 }
